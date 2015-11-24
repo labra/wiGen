@@ -4,9 +4,22 @@ import org.rogach.scallop._
 import org.rogach.scallop.exceptions._
 import es.weso.shacl._
 import es.weso.rdf.jena.RDFAsJenaModel
+import org.apache.jena.riot._
+import scala.concurrent.duration._
+import org.slf4j._
+import org.apache.log4j._
+
 
 object Main extends App {
  override def main(args: Array[String]): Unit = {
+   
+  lazy val log = LogManager.getRootLogger
+  val appenders = log.getAllAppenders
+  val appender : ConsoleAppender = log.getAppender("stdout").asInstanceOf[ConsoleAppender]
+
+    val error = Level.ERROR
+    log.setLevel(error)
+    appender.setThreshold(error)
     
     val opts = new MainOpts(args, errorDriver)
 
@@ -22,6 +35,30 @@ object Main extends App {
         opts.numOrgs(),
         rdf)
         
+    if (opts.shex()) {
+      val (valid,nanos) = validateShEx(rdf)
+      if (valid) {
+        if (opts.time()) {
+          val time = Duration(nanos,NANOSECONDS)
+          println("SHEX time: " + time.toMillis + "ms")
+        }
+      } else {
+        println("Not valid")
+      }
+    }
+    
+    if (opts.shacl()) {
+      val nanos = validateShacl(rdf)
+      if (nanos == -1) {
+        println("Not valid")
+      } else {
+      if (opts.time()) {
+        val time = Duration(nanos,NANOSECONDS)
+        println("SHACL time: " + time.toMillis + "ms")
+      }
+      }
+    }
+
     if (opts.show()) {
       val str = generated.serialize(opts.format())
       println(str)
@@ -41,6 +78,25 @@ object Main extends App {
       scallop.printHelp
       sys.exit(1)
   }
+   
+   
+ def validateShEx(rdf: RDFAsJenaModel): (Boolean, Long) = {
+   ShExValidator.validate(rdf.model)
+ }
+ 
+ def validateShacl(rdf: RDFAsJenaModel): Long = {
+   val shaclFile = "schemas/webindexShapes.ttl"
+   val model = rdf.model
+   val shaclModel = RDFDataMgr.loadModel(shaclFile)
+   val (result,time) = ShaclValidator.validate(model,shaclModel)
+   if (result.size == 0) {
+     time
+   } else {
+     println("Model not valid\n" + ShaclValidator.result2Str(result))
+     -1
+   }
+ }
+
 
 }
     

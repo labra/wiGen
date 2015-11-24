@@ -20,11 +20,9 @@ import java.io.ByteArrayOutputStream
  
 
 object ShaclValidator {
-  def validate(data: String, schema: String): (Model, Long) = {
+  
+  def validate(dataModel: Model, shapesModel: Model): (Model,Long) = {
     try {
-      val dataModel = RDFDataMgr.loadModel(data)
-      val shapesModel = RDFDataMgr.loadModel(schema)
-      
       val shaclModel = JenaUtil.createDefaultModel()
       val is = getClass().getResourceAsStream("/etc/shacl.ttl")
       shaclModel.read(is, SH.BASE_URI, FileUtils.langTurtle)
@@ -46,6 +44,24 @@ object ShaclValidator {
       val endTime = System.nanoTime()
       val time = endTime - startTime
       (results,time)
+    } catch {
+      case e: Exception => {
+        val model = ModelFactory.createDefaultModel
+        model.add(
+            model.createResource(), 
+            model.createProperty("exception"), 
+            model.createLiteral(e.toString))
+        (model,0)    
+      }
+    }
+    
+  }
+  
+  def validate(data: String, schema: String): (Model, Long) = {
+    try {
+      val dataModel = RDFDataMgr.loadModel(data)
+      val shapesModel = RDFDataMgr.loadModel(schema)
+      validate(dataModel,shapesModel)      
     } catch {
       case e: Exception => {
         val model = ModelFactory.createDefaultModel

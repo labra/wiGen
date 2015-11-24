@@ -45,7 +45,10 @@ resolvers ++= Seq("snapshots", "releases").map(Resolver.sonatypeRepo)
 //resolvers += "Sonatype OSS Snapshots" at
 //  "https://oss.sonatype.org/content/repositories/snapshots"
 
-resolvers += "Bintray" at "http://dl.bintray.com/weso/weso-releases"
+// resolvers += "Bintray" at "http://dl.bintray.com/weso/weso-releases"
+
+resolvers += Resolver.bintrayRepo("labra", "maven")
+
 
 EclipseKeys.createSrc := EclipseCreateSrc.Default + EclipseCreateSrc.Managed
 

@@ -8,7 +8,9 @@ import es.weso.rdfgraph.statements._
 import es.weso.rdfgraph._
 
 object WiGen {
+  
   def generate(
+      singleScopeNode: Boolean,
       numCountries: Int, 
       numDataSets: Int,
       numSlices: Int,
@@ -21,23 +23,28 @@ object WiGen {
     val o = IRI("o")
     
     for (i <- 1 to numCountries) {
-      addCountry(i)(rdf)
+      addCountry(i,singleScopeNode)(rdf)
     }
 
     for (i <- 1 to numDataSets) {
-      addDataSet(i, numOrgs)(rdf)
+      addDataSet(i, numOrgs,singleScopeNode)(rdf)
     }
     for (i <- 1 to numSlices) {
-      addSlice(i,numDataSets, numIndicators)(rdf)
+      addSlice(i,numDataSets, numIndicators,singleScopeNode)(rdf)
     }
     for (i <- 1 to numObs) {
-      addObservation(i,numCountries,numDataSets,numIndicators,numOrgs)(rdf)
+      addObservation(i,numCountries,numDataSets,numSlices,numIndicators,numOrgs,singleScopeNode)(rdf)
     }
     for (i <- 1 to numIndicators) {
-      addIndicator(i, numOrgs)(rdf)
+      addIndicator(i, numOrgs,singleScopeNode)(rdf)
     }
     for (i <- 1 to numOrgs) {
-      addOrganization(i)(rdf)
+      addOrganization(i,singleScopeNode)(rdf)
+    }
+    
+    if (singleScopeNode) {
+      val dataset1 = mkNode(dataSetName, 1) 
+      addTriple(rdf, (ex_DataSet, sh_scopeNode, dataset1))
     }
     rdf 
   }
@@ -84,9 +91,10 @@ object WiGen {
     
   val ex_Country = iri(ex,"Country")
   val ex_DataSet = iri(ex,"DataSet")
-  val ex_Observation = iri(ex,"Observation")
-  val ex_Organization = iri(ex,"Organization")
   val ex_Slice = iri(ex,"Slice")
+  val ex_Observation = iri(ex,"Observation")
+  val ex_Indicator = iri(ex,"Indicator")
+  val ex_Organization = iri(ex,"Organization")
 
   val foaf_homepage= iri(foaf,"homepage")
   
@@ -127,15 +135,17 @@ object WiGen {
   val indicatorName = "indicator"
   val orgName = "org"
 
- def addCountry(n:Int): RDFBuilder => (RDFNode,RDFBuilder) = { rdf =>
+ def addCountry(n:Int, singleScopeNode: Boolean): RDFBuilder => (RDFNode,RDFBuilder) = { rdf =>
    val node = mkNode(countryName, n)
    addTripleString(rdf,(node,rdfs_label,countryName + n))
    addTripleString(rdf,(node,wf_iso2,"c" + n))
-   addTriple(rdf, (ex_Country,sh_scopeNode,node))
+   if (!singleScopeNode) {
+     addTriple(rdf, (ex_Country,sh_scopeNode,node))
+   }
    (node,rdf)
  }
  
- def addDataSet(n:Int, numOrgs:Int): RDFBuilder => (RDFNode,RDFBuilder) = { rdf =>
+ def addDataSet(n:Int, numOrgs:Int, singleScopeNode: Boolean): RDFBuilder => (RDFNode,RDFBuilder) = { rdf =>
    val node = mkNode(dataSetName, n)
    addTriple(rdf,(node,rdf_type,qb_DataSet))
    addTriple(rdf,(node,qb_structure,wf_DSD))
@@ -145,11 +155,13 @@ object WiGen {
    val randomOrg = randomNode(orgName, numOrgs)
    addTriple(rdf,(node,dct_publisher,randomOrg))
    
+   if (!singleScopeNode) {
    addTriple(rdf, (ex_DataSet,sh_scopeNode,node))
+   }
    (node,rdf)
  }
  
- def addSlice(n: Int, numDataSets: Int, numIndicators: Int): RDFBuilder => (RDFNode, RDFBuilder) = { rdf =>
+ def addSlice(n: Int, numDataSets: Int, numIndicators: Int, singleScopeNode: Boolean): RDFBuilder => (RDFNode, RDFBuilder) = { rdf =>
    val node = mkNode(sliceName,n)
    addTriple(rdf,(node,rdf_type,qb_Slice))
    addTriple(rdf,(node,qb_sliceStructure,wf_sliceByYear))
@@ -162,16 +174,19 @@ object WiGen {
 
    // Observations are added when defining observations
    
+   if (!singleScopeNode) {
    addTriple(rdf, (ex_Slice,sh_scopeNode,node))
+   }
    (node, rdf)
   }
 
  def addObservation(n: Int, 
      numCountries: Int,
      numDataSets: Int,
+     numSlices: Int,
      numIndicators: Int,
-     numOrgs: Int
-     ): RDFBuilder => (RDFNode, RDFBuilder) = { rdf =>
+     numOrgs: Int, 
+     singleScopeNode: Boolean): RDFBuilder => (RDFNode, RDFBuilder) = { rdf =>
    val node = mkNode(obsName,n)
    addTriple(rdf,(node,rdf_type,qb_Observation))
    addTriple(rdf,(node,rdf_type,wf_Observation))
@@ -187,6 +202,14 @@ object WiGen {
    
    val randomDataSet = randomNode(dataSetName,numDataSets)
    addTriple(rdf,(node,qb_dataSet,randomDataSet))
+
+   // TODO: The following triples are not consistent
+   // It would be better to search which are the slices of the dataSet and select 
+   // one of them 
+   val randomSlice = randomNode(sliceName,numSlices)
+   addTriple(rdf,(randomDataSet,qb_slice,randomSlice))
+   addTriple(rdf,(randomSlice,qb_observation,node))
+   
    
    val randomCountry = randomNode(countryName,numCountries)
    addTriple(rdf,(node,cex_ref_area,randomCountry))
@@ -203,11 +226,15 @@ object WiGen {
      addTriple(rdf,(node,wf_source,mkNode("source",n)))
    }
    
+   if (!singleScopeNode) {
    addTriple(rdf, (ex_Observation,sh_scopeNode,node))
+   }
    (node, rdf)
   }
  
- def addIndicator(n: Int, numOrgs: Int): RDFBuilder => (RDFNode, RDFBuilder) = { rdf =>
+ def addIndicator(n: Int, 
+     numOrgs: Int, 
+     singleScopeNode: Boolean): RDFBuilder => (RDFNode, RDFBuilder) = { rdf =>
    val node = mkNode(indicatorName,n)
    val isPrimary = random.nextBoolean()
    if (isPrimary) {
@@ -218,10 +245,17 @@ object WiGen {
    addTripleString(rdf,(node,rdfs_label,indicatorName + n))
    val org = randomNode(orgName, numOrgs)
    addTriple(rdf,(node,wf_provider,org))
+   
+   if (!singleScopeNode) {
+    addTriple(rdf, (ex_Indicator,sh_scopeNode,node))
+   }
+   
    (node, rdf)
   }
  
- def addOrganization(n: Int): RDFBuilder => (RDFNode, RDFBuilder) = { rdf =>
+ def addOrganization(
+     n: Int, 
+     singleScopeNode: Boolean): RDFBuilder => (RDFNode, RDFBuilder) = { rdf =>
    val node = mkNode(orgName,n)
    addTriple(rdf,(node,rdf_type,org_Organization))
    addTripleString(rdf,(node,rdfs_label,orgName + n))

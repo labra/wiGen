@@ -8,6 +8,7 @@ import org.apache.jena.riot._
 import scala.concurrent.duration._
 import org.slf4j._
 import org.apache.log4j._
+import es.weso.utils.FileUtils
 
 object Main extends App {
   override def main(args: Array[String]): Unit = {
@@ -25,6 +26,7 @@ object Main extends App {
     val rdf = RDFAsJenaModel.empty
     val generated =
       WiGen.generate(
+        opts.singleScope(),
         opts.numCountries(),
         opts.numDataSets(),
         opts.numSlices(),
@@ -56,7 +58,12 @@ object Main extends App {
       val str = generated.serialize(opts.format())
       println(str)
     }
-
+    
+    if (opts.outputFile.get.isDefined) {
+      val fileName = opts.outputFile.get.get 
+      val str = generated.serialize(opts.format())
+      FileUtils.writeFile(fileName,str)
+    }
   }
 
   def printTime(opts: MainOpts, nanos: Long): Unit = {

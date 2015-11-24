@@ -70,11 +70,18 @@ class MainOpts(
     descr = "format"
     )
     
-  val outFile = opt[String]("outputFile",
+  val outputFile = opt[String]("file",
     default = None,
-    descr = "output file",
+    descr = "save generated data in a file",
     short = 'f'
     )
+    
+  val singleScope = toggle("single",
+    prefix = "no-",
+    default = Some(true),
+    descrYes = "generate a single scopeNode declaration",
+    descrNo = "generate all scopeNode declarations",
+    noshort = true)
     
   val shex = toggle("shex",
     prefix = "no-",

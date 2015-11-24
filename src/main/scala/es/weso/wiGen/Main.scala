@@ -39,19 +39,25 @@ object Main extends App {
     if (opts.shex()) {
       val (valid, nanos) = validateShEx(rdf)
       if (valid) {
-        printTime(opts,nanos)
+        printTime("shex ",opts,nanos)
       } else {
         println("Not valid")
       }
     }
 
     if (opts.shacl()) {
+      try {
       val nanos = validateShacl(rdf)
       if (nanos == -1) {
-        println("Not valid")
+        printTime("shacl not valid",opts,-1)
       } else {
-        printTime(opts,nanos)
+        printTime("shacl",opts,nanos)
+      } 
+      } catch {
+        case e : Throwable => 
+          printTime("shacl error " + e,opts,-1)
       }
+      
     }
 
     if (opts.show()) {
@@ -66,10 +72,10 @@ object Main extends App {
     }
   }
 
-  def printTime(opts: MainOpts, nanos: Long): Unit = {
+  def printTime(msg: String, opts: MainOpts, nanos: Long): Unit = {
     if (opts.time()) {
       val time = Duration(nanos, NANOSECONDS).toMillis
-      println(f"${opts.numCountries()}%3d,${opts.numDataSets()}%3d,${opts.numSlices()}%3d,${opts.numObs()}%3d,${opts.numIndicators()}%3d,${opts.numOrgs()}%3d,${opts.numOrgs()}%3d,$time")
+      println(f"$msg%s, ${opts.numCountries()}%3d, ${opts.numDataSets()}%3d, ${opts.numSlices()}%3d,${opts.numObs()}%3d,${opts.numIndicators()}%3d,${opts.numOrgs()}%3d,$time%10d")
     }
   }
 

@@ -1017,3 +1017,112 @@ shacl,  50,  10,   1,  5,  1, 50,      3334
 shex , 100,  10,   1,  5,  1, 50,       609
 shacl error java.lang.StackOverflowError, 100,  10,   1,  5,  1, 50,         0
 shex , 500,  10,   1,  5,  1, 50,       521
+shacl error java.lang.StackOverflowError, 500,  10,   1,  5,  1, 50,         0
+shex , 1000,  10,   1,  5,  1, 50,       564
+shacl error java.lang.StackOverflowError, 1000,  10,   1,  5,  1, 50,         0
+shex ,   1,  50,   1,  5,  1, 50,       424
+shacl,   1,  50,   1,  5,  1, 50,      3608
+shex ,   5,  50,   1,  5,  1, 50,       410
+shacl,   5,  50,   1,  5,  1, 50,      3480
+shex ,  10,  50,   1,  5,  1, 50,       403
+shacl,  10,  50,   1,  5,  1, 50,      3648
+shex ,  50,  50,   1,  5,  1, 50,       373
+shacl,  50,  50,   1,  5,  1, 50,      4152
+shex , 100,  50,   1,  5,  1, 50,       601
+shacl, 100,  50,   1,  5,  1, 50,      4699
+shex , 500,  50,   1,  5,  1, 50,       548
+shacl, 500,  50,   1,  5,  1, 50,      4587
+shex , 1000,  50,   1,  5,  1, 50,       544
+shacl, 1000,  50,   1,  5,  1, 50,      4940
+shex ,   1, 100,   1,  5,  1, 50,       618
+shacl,   1, 100,   1,  5,  1, 50,      4631
+shex ,   5, 100,   1,  5,  1, 50,       829
+shacl error java.lang.StackOverflowError,   5, 100,   1,  5,  1, 50,         0
+shex ,  10, 100,   1,  5,  1, 50,       705
+shacl,  10, 100,   1,  5,  1, 50,      4643
+shex ,  50, 100,   1,  5,  1, 50,       635
+shacl,  50, 100,   1,  5,  1, 50,      4334
+shex , 100, 100,   1,  5,  1, 50,       624
+shacl, 100, 100,   1,  5,  1, 50,      5073
+shex , 500, 100,   1,  5,  1, 50,       531
+shacl, 500, 100,   1,  5,  1, 50,      4818
+shex , 1000, 100,   1,  5,  1, 50,       582
+shacl, 1000, 100,   1,  5,  1, 50,      4908
+shex ,   1, 500,   1,  5,  1, 50,       727
+shacl,   1, 500,   1,  5,  1, 50,      4767
+shex ,   5, 500,   1,  5,  1, 50,       690
+shacl,   5, 500,   1,  5,  1, 50,      4853
+shex ,  10, 500,   1,  5,  1, 50,       704
+shacl,  10, 500,   1,  5,  1, 50,      5102
+shex ,  50, 500,   1,  5,  1, 50,       501
+shacl,  50, 500,   1,  5,  1, 50,      3927
+shex , 100, 500,   1,  5,  1, 50,       905
+shacl, 100, 500,   1,  5,  1, 50,      4255
+shex , 500, 500,   1,  5,  1, 50,       440
+shacl, 500, 500,   1,  5,  1, 50,      3618
+shex , 1000, 500,   1,  5,  1, 50,       433
+shacl, 1000, 500,   1,  5,  1, 50,      3281
+shex ,   1, 1000,   1,  5,  1, 50,       803
+shacl,   1, 1000,   1,  5,  1, 50,      4595
+shex ,   5, 1000,   1,  5,  1, 50,       835
+shacl,   5, 1000,   1,  5,  1, 50,      4423
+shex ,  10, 1000,   1,  5,  1, 50,       874
+shacl,  10, 1000,   1,  5,  1, 50,      4871
+shex ,  50, 1000,   1,  5,  1, 50,       718
+shacl,  50, 1000,   1,  5,  1, 50,      4449
+shex , 100, 1000,   1,  5,  1, 50,       825
+shacl, 100, 1000,   1,  5,  1, 50,      4275
+shex , 500, 1000,   1,  5,  1, 50,       642
+shacl, 500, 1000,   1,  5,  1, 50,      4557
+shex , 1000, 1000,   1,  5,  1, 50,       606
+shacl, 1000, 1000,   1,  5,  1, 50,      3485
+shex ,   1,   1,   1,  5,  1,100,       829
+shacl error java.lang.StackOverflowError,   1,   1,   1,  5,  1,100,         0
+shex ,   5,   1,   1,  5,  1,100,      1249
+shacl error java.lang.StackOverflowError,   5,   1,   1,  5,  1,100,         0
+shex ,  10,   1,   1,  5,  1,100,      1286
+shacl error java.lang.StackOverflowError,  10,   1,   1,  5,  1,100,         0
+shex ,  50,   1,   1,  5,  1,100,      1130
+shacl error java.lang.StackOverflowError,  50,   1,   1,  5,  1,100,         0
+shex , 100,   1,   1,  5,  1,100,      1225
+shacl error java.lang.StackOverflowError, 100,   1,   1,  5,  1,100,         0
+shex , 500,   1,   1,  5,  1,100,       845
+shacl error java.lang.StackOverflowError, 500,   1,   1,  5,  1,100,         0
+shex , 1000,   1,   1,  5,  1,100,      1269
+shacl error java.lang.StackOverflowError, 1000,   1,   1,  5,  1,100,         0
+shex ,   1,   5,   1,  5,  1,100,       854
+shacl error java.lang.StackOverflowError,   1,   5,   1,  5,  1,100,         0
+shex ,   5,   5,   1,  5,  1,100,       747
+shacl error java.lang.StackOverflowError,   5,   5,   1,  5,  1,100,         0
+shex ,  10,   5,   1,  5,  1,100,      1230
+shacl error java.lang.StackOverflowError,  10,   5,   1,  5,  1,100,         0
+shex ,  50,   5,   1,  5,  1,100,      1059
+shacl,  50,   5,   1,  5,  1,100,      4487
+shex , 100,   5,   1,  5,  1,100,       803
+shacl, 100,   5,   1,  5,  1,100,      4078
+shex , 500,   5,   1,  5,  1,100,       818
+shacl error java.lang.StackOverflowError, 500,   5,   1,  5,  1,100,         0
+shex , 1000,   5,   1,  5,  1,100,      1252
+shacl error java.lang.StackOverflowError, 1000,   5,   1,  5,  1,100,         0
+shex ,   1,  10,   1,  5,  1,100,      1195
+shacl error java.lang.StackOverflowError,   1,  10,   1,  5,  1,100,         0
+shex ,   5,  10,   1,  5,  1,100,       938
+shacl error java.lang.StackOverflowError,   5,  10,   1,  5,  1,100,         0
+shex ,  10,  10,   1,  5,  1,100,       786
+shacl,  10,  10,   1,  5,  1,100,      4935
+shex ,  50,  10,   1,  5,  1,100,      1006
+shacl,  50,  10,   1,  5,  1,100,      5202
+shex , 100,  10,   1,  5,  1,100,      1038
+shacl, 100,  10,   1,  5,  1,100,      5700
+shex , 500,  10,   1,  5,  1,100,      1327
+shacl error java.lang.StackOverflowError, 500,  10,   1,  5,  1,100,         0
+shex , 1000,  10,   1,  5,  1,100,       953
+shacl, 1000,  10,   1,  5,  1,100,      4982
+shex ,   1,  50,   1,  5,  1,100,       975
+shacl,   1,  50,   1,  5,  1,100,      4667
+shex ,   5,  50,   1,  5,  1,100,      1062
+shacl,   5,  50,   1,  5,  1,100,      4875
+shex ,  10,  50,   1,  5,  1,100,       721
+shacl,  10,  50,   1,  5,  1,100,      4116
+shex ,  50,  50,   1,  5,  1,100,       616
+shacl,  50,  50,   1,  5,  1,100,      4008

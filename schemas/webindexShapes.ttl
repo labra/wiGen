@@ -231,23 +231,26 @@
 .	
 
 :Organization a sh:Shape ;
-  sh:property [ 
-    sh:predicate rdf:type ;
-    sh:hasValue org:Organization ;
-    sh:minCount 1 ;
- ]  ;
+  sh:constraint [
+   a sh:ClosedShapeConstraint;
+   sh:ignoredProperties(rdf:type)
+  ] ;
  sh:property [
-	  sh:predicate rdfs:label ;
-	  sh:datatype xsd:string ;
-	  sh:minCount 1 ;
-	  sh:maxCount 1 ;
-	] ;
+  sh:predicate rdf:type ;
+  sh:hasValue org:Organization ;
+ ] ;
  sh:property [
-	  sh:predicate foaf:homepage ;
-	  sh:nodeKind sh:IRI ;
-	  sh:minCount 1 ;
-	  sh:maxCount 1 ;
-	] ;
+  sh:predicate rdfs:label ;
+  sh:datatype xsd:string ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+ ] ;
+ sh:property [
+  sh:predicate foaf:homepage ;
+  sh:nodeKind sh:IRI ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+] ;
 .
 	
 

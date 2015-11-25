@@ -58,7 +58,7 @@ prefix org: <http://www.w3.org/ns/org#>
 , wf:provider @:Organization
 }
 
-:Organization EXTRA a {
+:Organization CLOSED EXTRA a {
   a ( org:Organization )
 , rdfs:label xsd:string
 , foaf:homepage IRI

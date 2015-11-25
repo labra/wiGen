@@ -22,7 +22,7 @@ libraryDependencies ++= Seq(
   , "org.scalatest" % "scalatest_2.11" % "2.2.0" % "test"
   ,	"org.scalacheck" %% "scalacheck" % "1.11.4" % "test"
 //  , "com.storm-enroute" %% "scalameter" % "0.8-SNAPSHOT"
-  , "es.weso" % "shexcala_2.11" % "0.6.4" excludeAll(ExclusionRule(organization = "org.slf4j"))  
+  , "es.weso" % "shexcala_2.11" % "0.6.7" excludeAll(ExclusionRule(organization = "org.slf4j"))  
   )
 
 autoCompilerPlugins := true

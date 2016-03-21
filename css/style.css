@@ -3,3 +3,16 @@ body {
 }
 
 h1 { color: MidnightBlue; }
+
+table.stats { 
+	margin: 0px auto;
+	text-align: center;
+	border-collapse: collapse; 
+}
+
+tr.sep td { border-top: 1px solid; 
+}
+
+table, tr, td {
+  text-align: center;
+}

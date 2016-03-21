@@ -1,0 +1,231 @@
+<html>
+<head>
+<title>Comparison</title>
+<link rel="stylesheet" href="css/style.css" >
+<link href='http://fonts.googleapis.com/css?family=Ropa+Sans' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<h1>Performance Comparison</h1>
+<p>This page contains a performance comparison between ShEx and SHACL.
+<p>The experiment was run using the wiGen tool on 25th november 2015.
+  The experiment was run using an Intel Core 2 Duo CPU at 2.93GHz 
+  (3Gb RAM) using Debian Linux.</p>
+<p>The results of SHACL have been maintained in the page 
+   for historical reasons</p>    
+<h2>Results</h2>
+<p>The following table presents the results of validating a single node. 
+ SO means <i>Stack Overflow</i></p>
+
+<table class="stats">
+<caption>Performance benchmarks using ShEx and SHACL validating a single node (elapsed time in ms)</caption>
+<tr>
+<td></td>
+<td></td>
+<td colspan="7">Value</td>
+<tr>
+<td>Parameter</td>
+<td>Processor</td>
+<td>1</td>
+<td>5</td>
+<td>10</td>
+<td>50</td>
+<td>100</td>
+<td>500</td>
+<td>1000</td>
+</tr>
+<tr class="sep">
+<td rowspan="2">Countries</td>
+<td>ShEx</td>
+<td>228</td>
+<td>166</td>
+<td>217</td>
+<td>147</td>
+<td>146</td>
+<td>147</td>
+<td>230</td>
+</tr>
+<tr>
+<td>SHACL</td>
+<td>4999</td>
+<td>3964</td>
+<td>4149</td>
+<td>3166</td>
+<td>3591</td>
+<td>3561</td>
+<td>4581</td>
+</tr>
+<tr class="sep">
+<td rowspan="2">Datasets</td>
+<td>ShEx</td>
+<td>228</td>
+<td>188</td>
+<td>155</td>
+<td>202</td>
+<td>129</td>
+<td>213</td>
+<td>295</td>
+</tr>
+<tr>
+<td>SHACL</td>
+<td>4999</td>
+<td>3940</td>
+<td>3745</td>
+<td>4168</td>
+<td>4210</td>
+<td>3281</td>
+<td>3133</td>
+</tr>
+<tr class="sep">
+<td rowspan="2">Organizations</td>
+<td>ShEx</td>
+<td>228</td>
+<td>278</td>
+<td>310</td>
+<td>719</td>
+<td>940</td>
+<td>5437</td>
+<td>39496</td>
+</tr>
+<tr>
+<td>SHACL</td>
+<td>4999</td>
+<td>4592</td>
+<td>4445</td>
+<td>4237</td>
+<td>5896</td>
+<td>6169</td>
+<td>10121</td>
+</tr>
+<tr class="sep">
+<td rowspan="2">Observations</td>
+<td>ShEx</td>
+<td>228</td>
+<td>315</td>
+<td>722</td>
+<td>1417</td>
+<td>2935</td>
+<td>57655</td>
+<td>486240</td>
+</tr>
+<tr>
+<td>SHACL</td>
+<td>4999</td>
+<td>SO</td>
+<td>SO</td>
+<td>SO</td>
+<td>SO</td>
+<td>SO</td>
+<td>SO</td>
+</tr>
+</table>
+
+<p>The following table presents the performance results when we evaluate all the nodes.
+
+<table class="stats">
+<caption>Performance benchmarks using ShEx and SHACL validating all the nodes (elapsed time in ms)</caption>
+<tr>
+<td></td>
+<td></td>
+<td colspan="7">Value</td>
+<tr>
+<td>Parameter</td>
+<td>Processor</td>
+<td>1</td>
+<td>5</td>
+<td>10</td>
+<td>50</td>
+<td>100</td>
+<td>500</td>
+<td>1000</td>
+</tr>
+<tr class="sep">
+<td rowspan="2">Countries</td>
+<td>ShEx</td>
+<td>489</td>
+<td>492</td>
+<td>376</td>
+<td>441</td>
+<td>767</td>
+<td>8508</td>
+<td>54994</td>
+</tr>
+<tr>
+<td>SHACL</td>
+<td>10678</td>
+<td>9500</td>
+<td>9188</td>
+<td>6225</td>
+<td>6619</td>
+<td>9798</td>
+<td>15382</td>
+</tr>
+<tr class="sep">
+<td rowspan="2">Datasets</td>
+<td>ShEx</td>
+<td>419</td>
+<td>565</td>
+<td>544</td>
+<td>1200</td>
+<td>2064</td>
+<td>21287</td>
+<td>120847</td>
+</tr>
+<tr>
+<td>SHACL</td>
+<td>10516</td>
+<td>12112</td>
+<td>11707</td>
+<td>15119</td>
+<td>16032</td>
+<td>31397</td>
+<td>36769</td>
+</tr>
+<tr class="sep">
+<td rowspan="2">Organizations</td>
+<td>ShEx</td>
+<td>241</td>
+<td>367</td>
+<td>465</td>
+<td>842</td>
+<td>761</td>
+<td>7556</td>
+<td>51728</td>
+</tr>
+<tr>
+<td>SHACL</td>
+<td>9768</td>
+<td>7921</td>
+<td>7647</td>
+<td>8411</td>
+<td>6322</td>
+<td>9550</td>
+<td>119196</td>
+</tr>
+<tr class="sep">
+<td rowspan="2">Observations</td>
+<td>ShEx</td>
+<td>263</td>
+<td>589</td>
+<td>478</td>
+<td>2317</td>
+<td>3091</td>
+<td>96941</td>
+<td>869709</td>
+</tr>
+<tr>
+<td>SHACL</td>
+<td>7550</td>
+<td>SO</td>
+<td>SO</td>
+<td>SO</td>
+<td>SO</td>
+<td>SO</td>
+<td>SO</td>
+</tr>
+</table>
+
+
+
+</body>
+</html>
+

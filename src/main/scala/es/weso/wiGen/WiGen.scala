@@ -3,9 +3,9 @@ package es.weso.wiGen
 import es.weso.rdf._
 import es.weso.rdf.jena._
 import es.weso.rdf.jena.RDFAsJenaModel
-import es.weso.rdfgraph.nodes._
-import es.weso.rdfgraph.statements._
-import es.weso.rdfgraph._
+import es.weso.rdf.nodes._
+import es.weso.rdf.triples._
+import es.weso.rdf._
 
 object WiGen {
   

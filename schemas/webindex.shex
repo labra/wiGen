@@ -17,27 +17,27 @@ prefix org: <http://www.w3.org/ns/org#>
 }
 
 :DataSet {
-  a ( qb:DataSet )
-, qb:structure ( wf:DSD )
+  a [ qb:DataSet ]
+, qb:structure [ wf:DSD ]
 , rdfs:label xsd:string
 , qb:slice @:Slice*
 , dct:publisher @:Organization
 }
 
 :Slice {
-  a (qb:Slice) 
-, qb:sliceStructure (wf:sliceByYear)
+  a [ qb:Slice ]
+, qb:sliceStructure [ wf:sliceByYear ]
 , qb:observation @:Observation*
 , cex:indicator @:Indicator
 }
 
 :Observation {
- a (qb:Observation)
-, a (wf:Observation)
+ a [ qb:Observation ]
+, a [ wf:Observation ]
 , cex:value xsd:float
 , rdfs:label xsd:string ?
 , dct:issued xsd:dateTime
-, dct:publisher (wf:WebFoundation)?
+, dct:publisher [ wf:WebFoundation ] ?
 , qb:dataSet @:DataSet
 , cex:ref-area @:Country 
 , cex:indicator @:Indicator
@@ -47,19 +47,19 @@ prefix org: <http://www.w3.org/ns/org#>
 }
 
 :Computation {
- a ( cex:Computation )
+ a [ cex:Computation ]
 }
 
 :Indicator {
- a ( wf:PrimaryIndicator 
+ a [ wf:PrimaryIndicator 
      wf:SecondaryIndicator
-   )
+   ]
 , rdfs:label xsd:string
 , wf:provider @:Organization
 }
 
 :Organization CLOSED EXTRA a {
-  a ( org:Organization )
+  a [ org:Organization ]
 , rdfs:label xsd:string
 , foaf:homepage IRI
 }

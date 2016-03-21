@@ -21,8 +21,9 @@ libraryDependencies ++= Seq(
   , "com.novocode" % "junit-interface" % "0.11" % "test"  
   , "org.scalatest" % "scalatest_2.11" % "2.2.0" % "test"
   ,	"org.scalacheck" %% "scalacheck" % "1.11.4" % "test"
+  , "org.scoverage" %% "scalac-scoverage-runtime" % "1.0.4"  
 //  , "com.storm-enroute" %% "scalameter" % "0.8-SNAPSHOT"
-  , "es.weso" % "shexcala_2.11" % "0.6.7" excludeAll(ExclusionRule(organization = "org.slf4j"))  
+  , "es.weso" % "shexcala_2.11" % "0.7.6" excludeAll(ExclusionRule(organization = "org.slf4j"))  
   )
 
 autoCompilerPlugins := true

@@ -1,0 +1,7 @@
+shex ,  81,   5,   1,1000,  1,  5,    880197
+shacl error java.lang.StackOverflowError,  81,   5,   1,1000,  1,  5,         0
+shex ,  81,   5,   1,1000,  1,  5,   1260665
+shex ,  81,   5,   1,5000,  1,  5, 119438977
+shacl error java.lang.StackOverflowError,  81,   5,   1,5000,  1,  5,         0
+shex ,  81,   5,   1,10000,  1,  5, 637440733
+shacl error java.lang.StackOverflowError,  81,   5,   1,10000,  1,  5,         0

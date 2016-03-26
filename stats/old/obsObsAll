@@ -1,0 +1,14 @@
+shex ,   1,   1,   1,  1,  1,  1,       263
+shacl,   1,   1,   1,  1,  1,  1,      7550
+shex ,   1,   1,   1,  5,  1,  1,       589
+shacl error java.lang.StackOverflowError,   1,   1,   1,  5,  1,  1,         0
+shex ,   1,   1,   1, 10,  1,  1,       478
+shacl error java.lang.StackOverflowError,   1,   1,   1, 10,  1,  1,         0
+shex ,   1,   1,   1, 50,  1,  1,      2317
+shacl error java.lang.StackOverflowError,   1,   1,   1, 50,  1,  1,         0
+shex ,   1,   1,   1,100,  1,  1,      3091
+shacl error java.lang.StackOverflowError,   1,   1,   1,100,  1,  1,         0
+shex ,   1,   1,   1,500,  1,  1,     96946
+shacl error java.lang.StackOverflowError,   1,   1,   1,500,  1,  1,         0
+shex ,   1,   1,   1,1000,  1,  1,    869709
+shacl error java.lang.StackOverflowError,   1,   1,   1,1000,  1,  1,         0

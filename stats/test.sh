@@ -1,5 +1,7 @@
-values="1 2"
+values="1 2" 
+# values="1 5 10 50 100 500 1000" 
 wiGenRunner="\basura\wigen-0.0.1\wigen-0.0.1\bin\wigen.bat"
+# wiGenRunner=./wiGen
 
 countries="1"
 dataSets="1"
@@ -11,70 +13,77 @@ orgs="1"
 
 for countries in $values
 do
- $wiGenRunner -c $countries -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shex --time --scopeNodes >> out 
-# $wiGenRunner -c $countries -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shacl --time --scopeNodes >> out 
- $wiGenRunner -c $countries -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shex --time --no-scopeNodes >> out 
-# $wiGenRunner -c $countries -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shacl --time --no-scopeNodes >> out 
- $wiGenRunner -c $countries --badCountries 1 -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shex --time --scopeNodes >> out 
-# $wiGenRunner -c $countries --badCountries 1 -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shacl --time --scopeNodes >> out 
+outName="outCountries"
+params="-c $countries -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shex --time"
+paramsSingle="$params --no-scopeNodes"
+paramsBad="$params --badCountries 1"
+$wiGenRunner $params >> $outName 
+$wiGenRunner $paramsSingle >> $outName
+$wiGenRunner $paramsBad >> $outName
 done
 
 for dataSets in $values
 do
- $wiGenRunner -c $countries -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shex --time --scopeNodes >> out 
-# $wiGenRunner -c $countries -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shacl --time --scopeNodes >> out 
- $wiGenRunner -c $countries -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shex --time --no-scopeNodes >> out 
-# $wiGenRunner -c $countries -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shacl --time --no-scopeNodes >> out 
- $wiGenRunner -c $countries --badCountries 1 -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shex --time --scopeNodes >> out 
-# $wiGenRunner -c $countries --badCountries 1 -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shacl --time --scopeNodes >> out 
+outName="outDataSets"
+params="-c $countries -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shex --time"
+paramsSingle="$params --no-scopeNodes"
+paramsBad="$params --badCountries 1"
+$wiGenRunner $params >> $outName 
+$wiGenRunner $paramsSingle >> $outName
+$wiGenRunner $paramsBad >> $outName
 done
 
 for slices in $values
 do
- $wiGenRunner -c $countries -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shex --time --scopeNodes >> out 
-# $wiGenRunner -c $countries -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shacl --time --scopeNodes >> out 
- $wiGenRunner -c $countries -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shex --time --no-scopeNodes >> out 
-# $wiGenRunner -c $countries -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shacl --time --no-scopeNodes >> out 
- $wiGenRunner -c $countries --badCountries 1 -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shex --time --scopeNodes >> out 
-# $wiGenRunner -c $countries --badCountries 1 -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shacl --time --scopeNodes >> out 
+ outName="outSlices"
+ params="-c $countries -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shex --time"
+ paramsSingle="$params --no-scopeNodes"
+ paramsBad="$params --badCountries 1"
+ $wiGenRunner $params >> $outName 
+ $wiGenRunner $paramsSingle >> $outName
+ $wiGenRunner $paramsBad >> $outName
 done
 
 for obs in $values
 do
- $wiGenRunner -c $countries -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shex --time --scopeNodes >> out 
-# $wiGenRunner -c $countries -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shacl --time --scopeNodes >> out 
- $wiGenRunner -c $countries -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shex --time --no-scopeNodes >> out 
-# $wiGenRunner -c $countries -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shacl --time --no-scopeNodes >> out 
- $wiGenRunner -c $countries --badCountries 1 -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shex --time --scopeNodes >> out 
-# $wiGenRunner -c $countries --badCountries 1 -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shacl --time --scopeNodes >> out 
+ outName="outObs"
+ params="-c $countries -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shex --time"
+ paramsSingle="$params --no-scopeNodes"
+ paramsBad="$params --badCountries 1"
+ $wiGenRunner $params >> $outName 
+ $wiGenRunner $paramsSingle >> $outName
+ $wiGenRunner $paramsBad >> $outName
 done
 
 for comps in $values
 do
- $wiGenRunner -c $countries -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shex --time --scopeNodes >> out 
-# $wiGenRunner -c $countries -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shacl --time --scopeNodes >> out 
- $wiGenRunner -c $countries -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shex --time --no-scopeNodes >> out 
-# $wiGenRunner -c $countries -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shacl --time --no-scopeNodes >> out 
- $wiGenRunner -c $countries --badCountries 1 -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shex --time --scopeNodes >> out 
-# $wiGenRunner -c $countries --badCountries 1 -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shacl --time --scopeNodes >> out 
+ outName="outComps"
+ params="-c $countries -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shex --time"
+ paramsSingle="$params --no-scopeNodes"
+ paramsBad="$params --badCountries 1"
+ $wiGenRunner $params >> $outName 
+ $wiGenRunner $paramsSingle >> $outName
+ $wiGenRunner $paramsBad >> $outName
 done
 
 for indicators in $values
 do
- $wiGenRunner -c $countries -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shex --time --scopeNodes >> out 
-# $wiGenRunner -c $countries -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shacl --time --scopeNodes >> out 
- $wiGenRunner -c $countries -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shex --time --no-scopeNodes >> out 
-# $wiGenRunner -c $countries -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shacl --time --no-scopeNodes >> out 
- $wiGenRunner -c $countries --badCountries 1 -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shex --time --scopeNodes >> out 
-# $wiGenRunner -c $countries --badCountries 1 -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shacl --time --scopeNodes >> out 
+ outName="outIndicators"
+ params="-c $countries -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shex --time"
+ paramsSingle="$params --no-scopeNodes"
+ paramsBad="$params --badCountries 1"
+ $wiGenRunner $params >> $outName 
+ $wiGenRunner $paramsSingle >> $outName
+ $wiGenRunner $paramsBad >> $outName
 done
 
 for orgs in $values
 do
- $wiGenRunner -c $countries -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shex --time --scopeNodes >> out 
-# $wiGenRunner -c $countries -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shacl --time --scopeNodes >> out 
- $wiGenRunner -c $countries -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shex --time --no-scopeNodes >> out 
-# $wiGenRunner -c $countries -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shacl --time --no-scopeNodes >> out 
- $wiGenRunner -c $countries --badCountries 1 -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shex --time --scopeNodes >> out 
-# $wiGenRunner -c $countries --badCountries 1 -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shacl --time --scopeNodes >> out 
+ outName="outOrgs"
+ params="-c $countries -d $dataSets --slices $slices -o $obs -p $comps -i $indicators -g $orgs --shex --time"
+ paramsSingle="$params --no-scopeNodes"
+ paramsBad="$params --badCountries 1"
+ $wiGenRunner $params >> $outName 
+ $wiGenRunner $paramsSingle >> $outName
+ $wiGenRunner $paramsBad >> $outName
 done

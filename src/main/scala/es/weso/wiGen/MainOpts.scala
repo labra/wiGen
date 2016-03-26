@@ -57,6 +57,48 @@ class MainOpts(
     descr = "Number of organizations"
   )
   
+  val numBadCountries = opt[Int]("badCountries",
+    default = Some(0),
+    descr = "Number of invalid countries",
+    noshort = true
+  )
+
+  val numBadDataSets = opt[Int]("badDataSets",
+    default = Some(0),
+    descr = "Number of invalid dataSets",
+    noshort = true
+  )
+  
+  val numBadSlices = opt[Int]("badSlices",
+    default = Some(0),
+    descr = "Number of invalid slices",
+    noshort = true
+  )
+  
+  val numBadObs = opt[Int]("badObs",
+    default = Some(0),
+    descr = "Number of invalid observations",
+    noshort = true
+  )
+  
+  val numBadComps = opt[Int]("badComps",
+    default = Some(0),
+    descr = "Number of invalid computations",
+    noshort = true
+  )
+  
+  val numBadIndicators = opt[Int]("badIndicators",
+    default = Some(0),
+    descr = "Number of invalid indicators",
+    noshort = true
+  )
+  
+  val numBadOrgs = opt[Int]("badOrgs",
+    default = Some(0),
+    descr = "Number of invalid organizations",
+    noshort = true
+  )
+  
   val show = toggle("show",
     prefix = "no-",
     default = Some(false),
@@ -76,11 +118,11 @@ class MainOpts(
     short = 'f'
     )
     
-  val singleScope = toggle("single",
+  val allScopeNodes = toggle("scopeNodes",
     prefix = "no-",
     default = Some(true),
-    descrYes = "generate a single scopeNode declaration",
-    descrNo = "generate all scopeNode declarations",
+    descrYes = "generate all scopeNode declarations",
+    descrNo = "generate only one scopeNode declaration of a dataSet",
     noshort = true)
     
   val shex = toggle("shex",

@@ -1,0 +1,745 @@
+@prefix :      <http://example.org/> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix sh:    <http://www.w3.org/ns/shacl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix cex:   <http://purl.org/weso/ontology/computex#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix wf:    <http://data.webfoundation.org#> .
+
+:obs33  a              wf:Observation , qb:Observation ;
+        rdfs:label     "obs33" ;
+        wf:source      :source33 ;
+        dct:issued     "2015-05-30T09:00:00"^^xsd:dateTime ;
+        qb:dataSet     :dataSet1 ;
+        cex:indicator  :indicator1 ;
+        cex:ref-area   :country11 ;
+        cex:value      "0.39955735"^^xsd:float .
+
+:obs12  a                wf:Observation , qb:Observation ;
+        rdfs:label       "obs12" ;
+        dct:issued       "2015-05-30T09:00:00"^^xsd:dateTime ;
+        dct:publisher    wf:WebFoundation ;
+        qb:dataSet       :dataSet1 ;
+        cex:computation  [ a  cex:Computation ] ;
+        cex:indicator    :indicator1 ;
+        cex:ref-area     :country35 ;
+        cex:value        "0.6518374"^^xsd:float .
+
+:country30  rdfs:label  "country30" ;
+        wf:iso2     "c30" .
+
+:obs5   a                wf:Observation , qb:Observation ;
+        rdfs:label       "obs5" ;
+        dct:issued       "2015-05-30T09:00:00"^^xsd:dateTime ;
+        qb:dataSet       :dataSet1 ;
+        cex:computation  [ a  cex:Computation ] ;
+        cex:indicator    :indicator1 ;
+        cex:ref-area     :country43 ;
+        cex:value        "0.6029322"^^xsd:float .
+
+:org13  a              org:Organization ;
+        rdfs:label     "org13" ;
+        foaf:homepage  :homepageOrg13 .
+
+:country2  rdfs:label  "country2" ;
+        wf:iso2     "c2" .
+
+:obs41  a                wf:Observation , qb:Observation ;
+        rdfs:label       "obs41" ;
+        dct:issued       "2015-05-30T09:00:00"^^xsd:dateTime ;
+        dct:publisher    wf:WebFoundation ;
+        qb:dataSet       :dataSet1 ;
+        cex:computation  [ a  cex:Computation ] ;
+        cex:indicator    :indicator1 ;
+        cex:ref-area     :country6 ;
+        cex:value        "0.22389007"^^xsd:float .
+
+:obs20  a                wf:Observation , qb:Observation ;
+        rdfs:label       "obs20" ;
+        dct:issued       "2015-05-30T09:00:00"^^xsd:dateTime ;
+        qb:dataSet       :dataSet1 ;
+        cex:computation  [ a  cex:Computation ] ;
+        cex:indicator    :indicator1 ;
+        cex:ref-area     :country37 ;
+        cex:value        "0.9595822"^^xsd:float .
+
+:org6   a              org:Organization ;
+        rdfs:label     "org6" ;
+        foaf:homepage  :homepageOrg6 .
+
+:Slice  sh:scopeNode  :slice1 .
+
+:country38  rdfs:label  "country38" ;
+        wf:iso2     "c38" .
+
+:country17  rdfs:label  "country17" ;
+        wf:iso2     "c17" .
+
+:obs49  a              qb:Observation , wf:Observation ;
+        rdfs:label     "obs49" ;
+        wf:source      :source49 ;
+        dct:issued     "2015-05-30T09:00:00"^^xsd:dateTime ;
+        dct:publisher  wf:WebFoundation ;
+        qb:dataSet     :dataSet1 ;
+        cex:indicator  :indicator1 ;
+        cex:ref-area   :country33 ;
+        cex:value      "0.65456027"^^xsd:float .
+
+:obs28  a              wf:Observation , qb:Observation ;
+        rdfs:label     "obs28" ;
+        wf:source      :source28 ;
+        dct:issued     "2015-05-30T09:00:00"^^xsd:dateTime ;
+        qb:dataSet     :dataSet1 ;
+        cex:indicator  :indicator1 ;
+        cex:ref-area   :country4 ;
+        cex:value      "0.046876192"^^xsd:float .
+
+:country46  rdfs:label  "country46" ;
+        wf:iso2     "c46" .
+
+:country25  rdfs:label  "country25" ;
+        wf:iso2     "c25" .
+
+:obs36  a                wf:Observation , qb:Observation ;
+        rdfs:label       "obs36" ;
+        dct:issued       "2015-05-30T09:00:00"^^xsd:dateTime ;
+        dct:publisher    wf:WebFoundation ;
+        qb:dataSet       :dataSet1 ;
+        cex:computation  [ a  cex:Computation ] ;
+        cex:indicator    :indicator1 ;
+        cex:ref-area     :country32 ;
+        cex:value        "0.0073361397"^^xsd:float .
+
+:obs15  a              qb:Observation , wf:Observation ;
+        rdfs:label     "obs15" ;
+        wf:source      :source15 ;
+        dct:issued     "2015-05-30T09:00:00"^^xsd:dateTime ;
+        dct:publisher  wf:WebFoundation ;
+        qb:dataSet     :dataSet1 ;
+        cex:indicator  :indicator1 ;
+        cex:ref-area   :country23 ;
+        cex:value      "0.7115823"^^xsd:float .
+
+:org1   a              org:Organization ;
+        rdfs:label     "org1" ;
+        foaf:homepage  :homepageOrg1 .
+
+:country33  rdfs:label  "country33" ;
+        wf:iso2     "c33" .
+
+:country12  rdfs:label  "country12" ;
+        wf:iso2     "c12" .
+
+:org16  a              org:Organization ;
+        rdfs:label     "org16" ;
+        foaf:homepage  :homepageOrg16 .
+
+:obs8   a              qb:Observation , wf:Observation ;
+        rdfs:label     "obs8" ;
+        wf:source      :source8 ;
+        dct:issued     "2015-05-30T09:00:00"^^xsd:dateTime ;
+        dct:publisher  wf:WebFoundation ;
+        qb:dataSet     :dataSet1 ;
+        cex:indicator  :indicator1 ;
+        cex:ref-area   :country35 ;
+        cex:value      "0.17651922"^^xsd:float .
+
+:country5  rdfs:label  "country5" ;
+        wf:iso2     "c5" .
+
+:obs44  a                wf:Observation , qb:Observation ;
+        rdfs:label       "obs44" ;
+        dct:issued       "2015-05-30T09:00:00"^^xsd:dateTime ;
+        dct:publisher    wf:WebFoundation ;
+        qb:dataSet       :dataSet1 ;
+        cex:computation  [ a  cex:Computation ] ;
+        cex:indicator    :indicator1 ;
+        cex:ref-area     :country11 ;
+        cex:value        "0.49939567"^^xsd:float .
+
+:obs23  a              qb:Observation , wf:Observation ;
+        rdfs:label     "obs23" ;
+        wf:source      :source23 ;
+        dct:issued     "2015-05-30T09:00:00"^^xsd:dateTime ;
+        dct:publisher  wf:WebFoundation ;
+        qb:dataSet     :dataSet1 ;
+        cex:indicator  :indicator1 ;
+        cex:ref-area   :country27 ;
+        cex:value      "0.78237855"^^xsd:float .
+
+:country41  rdfs:label  "country41" ;
+        wf:iso2     "c41" .
+
+:org9   a              org:Organization ;
+        rdfs:label     "org9" ;
+        foaf:homepage  :homepageOrg9 .
+
+:country20  rdfs:label  "country20" ;
+        wf:iso2     "c20" .
+
+:obs31  a              wf:Observation , qb:Observation ;
+        rdfs:label     "obs31" ;
+        wf:source      :source31 ;
+        dct:issued     "2015-05-30T09:00:00"^^xsd:dateTime ;
+        dct:publisher  wf:WebFoundation ;
+        qb:dataSet     :dataSet1 ;
+        cex:indicator  :indicator1 ;
+        cex:ref-area   :country32 ;
+        cex:value      "0.35611534"^^xsd:float .
+
+:obs10  a                wf:Observation , qb:Observation ;
+        rdfs:label       "obs10" ;
+        dct:issued       "2015-05-30T09:00:00"^^xsd:dateTime ;
+        qb:dataSet       :dataSet1 ;
+        cex:computation  [ a  cex:Computation ] ;
+        cex:indicator    :indicator1 ;
+        cex:ref-area     :country42 ;
+        cex:value        "0.52735454"^^xsd:float .
+
+:country49  rdfs:label  "country49" ;
+        wf:iso2     "c49" .
+
+:country28  rdfs:label  "country28" ;
+        wf:iso2     "c28" .
+
+:org11  a              org:Organization ;
+        rdfs:label     "org11" ;
+        foaf:homepage  :homepageOrg11 .
+
+:obs3   a                qb:Observation , wf:Observation ;
+        rdfs:label       "obs3" ;
+        dct:issued       "2015-05-30T09:00:00"^^xsd:dateTime ;
+        dct:publisher    wf:WebFoundation ;
+        qb:dataSet       :dataSet1 ;
+        cex:computation  [ a  cex:Computation ] ;
+        cex:indicator    :indicator1 ;
+        cex:ref-area     :country19 ;
+        cex:value        "0.1841734"^^xsd:float .
+
+:obs39  a                wf:Observation , qb:Observation ;
+        rdfs:label       "obs39" ;
+        dct:issued       "2015-05-30T09:00:00"^^xsd:dateTime ;
+        qb:dataSet       :dataSet1 ;
+        cex:computation  [ a  cex:Computation ] ;
+        cex:indicator    :indicator1 ;
+        cex:ref-area     :country15 ;
+        cex:value        "0.74023837"^^xsd:float .
+
+:obs18  a              wf:Observation , qb:Observation ;
+        rdfs:label     "obs18" ;
+        wf:source      :source18 ;
+        dct:issued     "2015-05-30T09:00:00"^^xsd:dateTime ;
+        qb:dataSet     :dataSet1 ;
+        cex:indicator  :indicator1 ;
+        cex:ref-area   :country20 ;
+        cex:value      "0.23266506"^^xsd:float .
+
+:org4   a              org:Organization ;
+        rdfs:label     "org4" ;
+        foaf:homepage  :homepageOrg4 .
+
+:country36  rdfs:label  "country36" ;
+        wf:iso2     "c36" .
+
+:country15  rdfs:label  "country15" ;
+        wf:iso2     "c15" .
+
+:org19  a              org:Organization ;
+        rdfs:label     "org19" ;
+        foaf:homepage  :homepageOrg19 .
+
+:country8  rdfs:label  "country8" ;
+        wf:iso2     "c8" .
+
+:obs47  a                wf:Observation , qb:Observation ;
+        rdfs:label       "obs47" ;
+        dct:issued       "2015-05-30T09:00:00"^^xsd:dateTime ;
+        qb:dataSet       :dataSet1 ;
+        cex:computation  [ a  cex:Computation ] ;
+        cex:indicator    :indicator1 ;
+        cex:ref-area     :country29 ;
+        cex:value        "0.74565625"^^xsd:float .
+
+:obs26  a                wf:Observation , qb:Observation ;
+        rdfs:label       "obs26" ;
+        dct:issued       "2015-05-30T09:00:00"^^xsd:dateTime ;
+        dct:publisher    wf:WebFoundation ;
+        qb:dataSet       :dataSet1 ;
+        cex:computation  [ a  cex:Computation ] ;
+        cex:indicator    :indicator1 ;
+        cex:ref-area     :country2 ;
+        cex:value        "0.8366643"^^xsd:float .
+
+:Country  sh:scopeNode  :country50 , :country6 , :country38 , :country48 , :country44 , :country39 , :country18 , :country28 , :country36 , :country46 , :country42 , :country27 , :country33 , :country41 , :country30 , :country25 , :country21 , :country31 , :country8 , :country2 , :country11 , :country7 , :country49 , :country45 , :country29 , :country47 , :country43 , :country32 , :country15 , :country3 , :country12 , :country22 , :country4 , :country13 , :country9 , :country1 , :country10 , :country19 , :country37 , :country16 , :country26 , :country34 , :country40 , :country17 , :country5 , :country35 , :country14 , :country24 , :country20 , :country23 .
+
+:country44  rdfs:label  "country44" ;
+        wf:iso2     "c44" .
+
+:country23  rdfs:label  "country23" ;
+        wf:iso2     "c23" .
+
+:obs34  a                wf:Observation , qb:Observation ;
+        rdfs:label       "obs34" ;
+        dct:issued       "2015-05-30T09:00:00"^^xsd:dateTime ;
+        qb:dataSet       :dataSet1 ;
+        cex:computation  [ a  cex:Computation ] ;
+        cex:indicator    :indicator1 ;
+        cex:ref-area     :country7 ;
+        cex:value        "0.13856387"^^xsd:float .
+
+:obs13  a                qb:Observation , wf:Observation ;
+        rdfs:label       "obs13" ;
+        dct:issued       "2015-05-30T09:00:00"^^xsd:dateTime ;
+        dct:publisher    wf:WebFoundation ;
+        qb:dataSet       :dataSet1 ;
+        cex:computation  [ a  cex:Computation ] ;
+        cex:indicator    :indicator1 ;
+        cex:ref-area     :country19 ;
+        cex:value        "0.7215455"^^xsd:float .
+
+:country31  rdfs:label  "country31" ;
+        wf:iso2     "c31" .
+
+:country10  rdfs:label  "country10" ;
+        wf:iso2     "c10" .
+
+:obs6   a              wf:Observation , qb:Observation ;
+        rdfs:label     "obs6" ;
+        wf:source      :source6 ;
+        dct:issued     "2015-05-30T09:00:00"^^xsd:dateTime ;
+        qb:dataSet     :dataSet1 ;
+        cex:indicator  :indicator1 ;
+        cex:ref-area   :country44 ;
+        cex:value      "0.11367059"^^xsd:float .
+
+:org14  a              org:Organization ;
+        rdfs:label     "org14" ;
+        foaf:homepage  :homepageOrg14 .
+
+:country3  rdfs:label  "country3" ;
+        wf:iso2     "c3" .
+
+:obs42  a                wf:Observation , qb:Observation ;
+        rdfs:label       "obs42" ;
+        dct:issued       "2015-05-30T09:00:00"^^xsd:dateTime ;
+        dct:publisher    wf:WebFoundation ;
+        qb:dataSet       :dataSet1 ;
+        cex:computation  [ a  cex:Computation ] ;
+        cex:indicator    :indicator1 ;
+        cex:ref-area     :country44 ;
+        cex:value        "0.445363"^^xsd:float .
+
+:obs21  a              wf:Observation , qb:Observation ;
+        rdfs:label     "obs21" ;
+        wf:source      :source21 ;
+        dct:issued     "2015-05-30T09:00:00"^^xsd:dateTime ;
+        qb:dataSet     :dataSet1 ;
+        cex:indicator  :indicator1 ;
+        cex:ref-area   :country34 ;
+        cex:value      "0.6851592"^^xsd:float .
+
+:org7   a              org:Organization ;
+        rdfs:label     "org7" ;
+        foaf:homepage  :homepageOrg7 .
+
+:country39  rdfs:label  "country39" ;
+        wf:iso2     "c39" .
+
+:Indicator  sh:scopeNode  :indicator1 .
+
+:country18  rdfs:label  "country18" ;
+        wf:iso2     "c18" .
+
+:obs50  a              qb:Observation , wf:Observation ;
+        rdfs:label     "obs50" ;
+        wf:source      :source50 ;
+        dct:issued     "2015-05-30T09:00:00"^^xsd:dateTime ;
+        dct:publisher  wf:WebFoundation ;
+        qb:dataSet     :dataSet1 ;
+        cex:indicator  :indicator1 ;
+        cex:ref-area   :country37 ;
+        cex:value      "0.35399002"^^xsd:float .
+
+:obs29  a              wf:Observation , qb:Observation ;
+        rdfs:label     "obs29" ;
+        wf:source      :source29 ;
+        dct:issued     "2015-05-30T09:00:00"^^xsd:dateTime ;
+        qb:dataSet     :dataSet1 ;
+        cex:indicator  :indicator1 ;
+        cex:ref-area   :country37 ;
+        cex:value      "0.67459667"^^xsd:float .
+
+:country47  rdfs:label  "country47" ;
+        wf:iso2     "c47" .
+
+:country26  rdfs:label  "country26" ;
+        wf:iso2     "c26" .
+
+:obs1   a                wf:Observation , qb:Observation ;
+        rdfs:label       "obs1" ;
+        dct:issued       "2015-05-30T09:00:00"^^xsd:dateTime ;
+        dct:publisher    wf:WebFoundation ;
+        qb:dataSet       :dataSet1 ;
+        cex:computation  [ a  cex:Computation ] ;
+        cex:indicator    :indicator1 ;
+        cex:ref-area     :country18 ;
+        cex:value        "0.76981974"^^xsd:float .
+
+:obs37  a              wf:Observation , qb:Observation ;
+        rdfs:label     "obs37" ;
+        wf:source      :source37 ;
+        dct:issued     "2015-05-30T09:00:00"^^xsd:dateTime ;
+        qb:dataSet     :dataSet1 ;
+        cex:indicator  :indicator1 ;
+        cex:ref-area   :country20 ;
+        cex:value      "0.6662672"^^xsd:float .
+
+:obs16  a              wf:Observation , qb:Observation ;
+        rdfs:label     "obs16" ;
+        wf:source      :source16 ;
+        dct:issued     "2015-05-30T09:00:00"^^xsd:dateTime ;
+        dct:publisher  wf:WebFoundation ;
+        qb:dataSet     :dataSet1 ;
+        cex:indicator  :indicator1 ;
+        cex:ref-area   :country32 ;
+        cex:value      "0.8601687"^^xsd:float .
+
+:org2   a              org:Organization ;
+        rdfs:label     "org2" ;
+        foaf:homepage  :homepageOrg2 .
+
+:country34  rdfs:label  "country34" ;
+        wf:iso2     "c34" .
+
+:country13  rdfs:label  "country13" ;
+        wf:iso2     "c13" .
+
+:org17  a              org:Organization ;
+        rdfs:label     "org17" ;
+        foaf:homepage  :homepageOrg17 .
+
+:obs9   a              qb:Observation , wf:Observation ;
+        rdfs:label     "obs9" ;
+        wf:source      :source9 ;
+        dct:issued     "2015-05-30T09:00:00"^^xsd:dateTime ;
+        dct:publisher  wf:WebFoundation ;
+        qb:dataSet     :dataSet1 ;
+        cex:indicator  :indicator1 ;
+        cex:ref-area   :country41 ;
+        cex:value      "0.58615214"^^xsd:float .
+
+:country6  rdfs:label  "country6" ;
+        wf:iso2     "c6" .
+
+:obs45  a              wf:Observation , qb:Observation ;
+        rdfs:label     "obs45" ;
+        wf:source      :source45 ;
+        dct:issued     "2015-05-30T09:00:00"^^xsd:dateTime ;
+        dct:publisher  wf:WebFoundation ;
+        qb:dataSet     :dataSet1 ;
+        cex:indicator  :indicator1 ;
+        cex:ref-area   :country39 ;
+        cex:value      "0.9511211"^^xsd:float .
+
+:obs24  a              qb:Observation , wf:Observation ;
+        rdfs:label     "obs24" ;
+        wf:source      :source24 ;
+        dct:issued     "2015-05-30T09:00:00"^^xsd:dateTime ;
+        dct:publisher  wf:WebFoundation ;
+        qb:dataSet     :dataSet1 ;
+        cex:indicator  :indicator1 ;
+        cex:ref-area   :country15 ;
+        cex:value      "0.68960553"^^xsd:float .
+
+:country42  rdfs:label  "country42" ;
+        wf:iso2     "c42" .
+
+:country21  rdfs:label  "country21" ;
+        wf:iso2     "c21" .
+
+:obs32  a              wf:Observation , qb:Observation ;
+        rdfs:label     "obs32" ;
+        wf:source      :source32 ;
+        dct:issued     "2015-05-30T09:00:00"^^xsd:dateTime ;
+        qb:dataSet     :dataSet1 ;
+        cex:indicator  :indicator1 ;
+        cex:ref-area   :country28 ;
+        cex:value      "0.09758204"^^xsd:float .
+
+:obs11  a                wf:Observation , qb:Observation ;
+        rdfs:label       "obs11" ;
+        dct:issued       "2015-05-30T09:00:00"^^xsd:dateTime ;
+        dct:publisher    wf:WebFoundation ;
+        qb:dataSet       :dataSet1 ;
+        cex:computation  [ a  cex:Computation ] ;
+        cex:indicator    :indicator1 ;
+        cex:ref-area     :country1 ;
+        cex:value        "0.47881055"^^xsd:float .
+
+:country50  rdfs:label  "country50" ;
+        wf:iso2     "c50" .
+
+:country29  rdfs:label  "country29" ;
+        wf:iso2     "c29" .
+
+:org12  a              org:Organization ;
+        rdfs:label     "org12" ;
+        foaf:homepage  :homepageOrg12 .
+
+:obs4   a              wf:Observation , qb:Observation ;
+        rdfs:label     "obs4" ;
+        wf:source      :source4 ;
+        dct:issued     "2015-05-30T09:00:00"^^xsd:dateTime ;
+        qb:dataSet     :dataSet1 ;
+        cex:indicator  :indicator1 ;
+        cex:ref-area   :country25 ;
+        cex:value      "0.31460595"^^xsd:float .
+
+:country1  rdfs:label  "country1" ;
+        wf:iso2     "c1" .
+
+:obs40  a              qb:Observation , wf:Observation ;
+        rdfs:label     "obs40" ;
+        wf:source      :source40 ;
+        dct:issued     "2015-05-30T09:00:00"^^xsd:dateTime ;
+        dct:publisher  wf:WebFoundation ;
+        qb:dataSet     :dataSet1 ;
+        cex:indicator  :indicator1 ;
+        cex:ref-area   :country5 ;
+        cex:value      "0.653592"^^xsd:float .
+
+:obs19  a                wf:Observation , qb:Observation ;
+        rdfs:label       "obs19" ;
+        dct:issued       "2015-05-30T09:00:00"^^xsd:dateTime ;
+        qb:dataSet       :dataSet1 ;
+        cex:computation  [ a  cex:Computation ] ;
+        cex:indicator    :indicator1 ;
+        cex:ref-area     :country45 ;
+        cex:value        "0.14501923"^^xsd:float .
+
+:org5   a              org:Organization ;
+        rdfs:label     "org5" ;
+        foaf:homepage  :homepageOrg5 .
+
+:country37  rdfs:label  "country37" ;
+        wf:iso2     "c37" .
+
+:country16  rdfs:label  "country16" ;
+        wf:iso2     "c16" .
+
+:org20  a              org:Organization ;
+        rdfs:label     "org20" ;
+        foaf:homepage  :homepageOrg20 .
+
+:country9  rdfs:label  "country9" ;
+        wf:iso2     "c9" .
+
+:obs48  a                wf:Observation , qb:Observation ;
+        rdfs:label       "obs48" ;
+        dct:issued       "2015-05-30T09:00:00"^^xsd:dateTime ;
+        qb:dataSet       :dataSet1 ;
+        cex:computation  [ a  cex:Computation ] ;
+        cex:indicator    :indicator1 ;
+        cex:ref-area     :country26 ;
+        cex:value        "0.055868804"^^xsd:float .
+
+:obs27  a                wf:Observation , qb:Observation ;
+        rdfs:label       "obs27" ;
+        dct:issued       "2015-05-30T09:00:00"^^xsd:dateTime ;
+        qb:dataSet       :dataSet1 ;
+        cex:computation  [ a  cex:Computation ] ;
+        cex:indicator    :indicator1 ;
+        cex:ref-area     :country5 ;
+        cex:value        "0.19938737"^^xsd:float .
+
+:country45  rdfs:label  "country45" ;
+        wf:iso2     "c45" .
+
+:Organization  sh:scopeNode  :org16 , :org5 , :org2 , :org19 , :org10 , :org15 , :org9 , :org7 , :org12 , :org1 , :org14 , :org18 , :org4 , :org20 , :org6 , :org11 , :org8 , :org3 , :org13 , :org17 .
+
+:country24  rdfs:label  "country24" ;
+        wf:iso2     "c24" .
+
+:DataSet  sh:scopeNode  :dataSet1 .
+
+:obs35  a                wf:Observation , qb:Observation ;
+        rdfs:label       "obs35" ;
+        dct:issued       "2015-05-30T09:00:00"^^xsd:dateTime ;
+        qb:dataSet       :dataSet1 ;
+        cex:computation  [ a  cex:Computation ] ;
+        cex:indicator    :indicator1 ;
+        cex:ref-area     :country37 ;
+        cex:value        "0.6572233"^^xsd:float .
+
+:obs14  a              qb:Observation , wf:Observation ;
+        rdfs:label     "obs14" ;
+        wf:source      :source14 ;
+        dct:issued     "2015-05-30T09:00:00"^^xsd:dateTime ;
+        dct:publisher  wf:WebFoundation ;
+        qb:dataSet     :dataSet1 ;
+        cex:indicator  :indicator1 ;
+        cex:ref-area   :country14 ;
+        cex:value      "0.50971484"^^xsd:float .
+
+:country32  rdfs:label  "country32" ;
+        wf:iso2     "c32" .
+
+:dataSet1  a           qb:DataSet ;
+        rdfs:label     "dataSet1" ;
+        dct:publisher  :org5 ;
+        qb:slice       :slice1 ;
+        qb:structure   wf:DSD .
+
+:country11  rdfs:label  "country11" ;
+        wf:iso2     "c11" .
+
+:obs7   a              wf:Observation , qb:Observation ;
+        rdfs:label     "obs7" ;
+        wf:source      :source7 ;
+        dct:issued     "2015-05-30T09:00:00"^^xsd:dateTime ;
+        dct:publisher  wf:WebFoundation ;
+        qb:dataSet     :dataSet1 ;
+        cex:indicator  :indicator1 ;
+        cex:ref-area   :country1 ;
+        cex:value      "0.8814214"^^xsd:float .
+
+:org15  a              org:Organization ;
+        rdfs:label     "org15" ;
+        foaf:homepage  :homepageOrg15 .
+
+:country4  rdfs:label  "country4" ;
+        wf:iso2     "c4" .
+
+:obs43  a                wf:Observation , qb:Observation ;
+        rdfs:label       "obs43" ;
+        dct:issued       "2015-05-30T09:00:00"^^xsd:dateTime ;
+        dct:publisher    wf:WebFoundation ;
+        qb:dataSet       :dataSet1 ;
+        cex:computation  [ a  cex:Computation ] ;
+        cex:indicator    :indicator1 ;
+        cex:ref-area     :country37 ;
+        cex:value        "0.48287606"^^xsd:float .
+
+:obs22  a              wf:Observation , qb:Observation ;
+        rdfs:label     "obs22" ;
+        wf:source      :source22 ;
+        dct:issued     "2015-05-30T09:00:00"^^xsd:dateTime ;
+        qb:dataSet     :dataSet1 ;
+        cex:indicator  :indicator1 ;
+        cex:ref-area   :country17 ;
+        cex:value      "0.9874685"^^xsd:float .
+
+:indicator1  a       wf:PrimaryIndicator ;
+        rdfs:label   "indicator1" ;
+        wf:provider  :org13 .
+
+:country40  rdfs:label  "country40" ;
+        wf:iso2     "c40" .
+
+:org8   a              org:Organization ;
+        rdfs:label     "org8" ;
+        foaf:homepage  :homepageOrg8 .
+
+:country19  rdfs:label  "country19" ;
+        wf:iso2     "c19" .
+
+:obs30  a                wf:Observation , qb:Observation ;
+        rdfs:label       "obs30" ;
+        dct:issued       "2015-05-30T09:00:00"^^xsd:dateTime ;
+        qb:dataSet       :dataSet1 ;
+        cex:computation  [ a  cex:Computation ] ;
+        cex:indicator    :indicator1 ;
+        cex:ref-area     :country20 ;
+        cex:value        "0.38994926"^^xsd:float .
+
+:slice1  a                 qb:Slice ;
+        qb:observation     :obs34 , :obs24 , :obs14 , :obs48 , :obs46 , :obs38 , :obs1 , :obs11 , :obs5 , :obs41 , :obs43 , :obs33 , :obs27 , :obs29 , :obs19 , :obs22 , :obs9 , :obs13 , :obs35 , :obs37 , :obs39 , :obs4 , :obs40 , :obs30 , :obs42 , :obs32 , :obs26 , :obs16 , :obs28 , :obs18 , :obs3 , :obs21 , :obs23 , :obs7 , :obs45 , :obs8 , :obs36 , :obs31 , :obs25 , :obs15 , :obs17 , :obs47 , :obs49 , :obs2 , :obs20 , :obs10 , :obs12 , :obs6 , :obs50 , :obs44 ;
+        qb:sliceStructure  wf:sliceByYear ;
+        cex:indicator      :indicator1 .
+
+:Observation  sh:scopeNode  :obs25 , :obs8 , :obs38 , :obs13 , :obs26 , :obs34 , :obs22 , :obs28 , :obs3 , :obs21 , :obs12 , :obs49 , :obs4 , :obs46 , :obs37 , :obs30 , :obs36 , :obs39 , :obs24 , :obs32 , :obs45 , :obs20 , :obs33 , :obs1 , :obs23 , :obs16 , :obs50 , :obs2 , :obs11 , :obs19 , :obs48 , :obs7 , :obs18 , :obs41 , :obs44 , :obs9 , :obs43 , :obs27 , :obs31 , :obs15 , :obs29 , :obs14 , :obs17 , :obs40 , :obs5 , :obs10 , :obs47 , :obs6 , :obs42 , :obs35 .
+
+:country48  rdfs:label  "country48" ;
+        wf:iso2     "c48" .
+
+:country27  rdfs:label  "country27" ;
+        wf:iso2     "c27" .
+
+:org10  a              org:Organization ;
+        rdfs:label     "org10" ;
+        foaf:homepage  :homepageOrg10 .
+
+:obs2   a              wf:Observation , qb:Observation ;
+        rdfs:label     "obs2" ;
+        wf:source      :source2 ;
+        dct:issued     "2015-05-30T09:00:00"^^xsd:dateTime ;
+        qb:dataSet     :dataSet1 ;
+        cex:indicator  :indicator1 ;
+        cex:ref-area   :country24 ;
+        cex:value      "0.3885936"^^xsd:float .
+
+:obs38  a                wf:Observation , qb:Observation ;
+        rdfs:label       "obs38" ;
+        dct:issued       "2015-05-30T09:00:00"^^xsd:dateTime ;
+        qb:dataSet       :dataSet1 ;
+        cex:computation  [ a  cex:Computation ] ;
+        cex:indicator    :indicator1 ;
+        cex:ref-area     :country18 ;
+        cex:value        "0.22481477"^^xsd:float .
+
+:obs17  a              qb:Observation , wf:Observation ;
+        rdfs:label     "obs17" ;
+        wf:source      :source17 ;
+        dct:issued     "2015-05-30T09:00:00"^^xsd:dateTime ;
+        dct:publisher  wf:WebFoundation ;
+        qb:dataSet     :dataSet1 ;
+        cex:indicator  :indicator1 ;
+        cex:ref-area   :country3 ;
+        cex:value      "0.2804327"^^xsd:float .
+
+:org3   a              org:Organization ;
+        rdfs:label     "org3" ;
+        foaf:homepage  :homepageOrg3 .
+
+:country35  rdfs:label  "country35" ;
+        wf:iso2     "c35" .
+
+:country14  rdfs:label  "country14" ;
+        wf:iso2     "c14" .
+
+:org18  a              org:Organization ;
+        rdfs:label     "org18" ;
+        foaf:homepage  :homepageOrg18 .
+
+:country7  rdfs:label  "country7" ;
+        wf:iso2     "c7" .
+
+:obs46  a                wf:Observation , qb:Observation ;
+        rdfs:label       "obs46" ;
+        dct:issued       "2015-05-30T09:00:00"^^xsd:dateTime ;
+        dct:publisher    wf:WebFoundation ;
+        qb:dataSet       :dataSet1 ;
+        cex:computation  [ a  cex:Computation ] ;
+        cex:indicator    :indicator1 ;
+        cex:ref-area     :country43 ;
+        cex:value        "0.7210582"^^xsd:float .
+
+:obs25  a                wf:Observation , qb:Observation ;
+        rdfs:label       "obs25" ;
+        dct:issued       "2015-05-30T09:00:00"^^xsd:dateTime ;
+        qb:dataSet       :dataSet1 ;
+        cex:computation  [ a  cex:Computation ] ;
+        cex:indicator    :indicator1 ;
+        cex:ref-area     :country24 ;
+        cex:value        "0.8253916"^^xsd:float .
+
+:country43  rdfs:label  "country43" ;
+        wf:iso2     "c43" .
+
+:country22  rdfs:label  "country22" ;
+        wf:iso2     "c22" .

@@ -26,7 +26,7 @@ object Main extends App {
     val rdf = RDFAsJenaModel.empty
     val generated =
       WiGen.generate(
-        opts.singleScope(),
+        opts.allScopeNodes(),
         opts.numCountries(),
         opts.numDataSets(),
         opts.numSlices(),
@@ -34,24 +34,31 @@ object Main extends App {
         opts.numComps(),
         opts.numIndicators(),
         opts.numOrgs(),
-        rdf)
+        rdf,
+        opts.numBadCountries(),
+        opts.numBadDataSets(),
+        opts.numBadSlices(),
+        opts.numBadObs(),
+        opts.numBadComps(),
+        opts.numBadIndicators(),
+        opts.numBadOrgs())
 
     if (opts.shex()) {
-      val (valid, nanos) = validateShEx(rdf)
+      val (valid, time) = validateShEx(rdf)
       if (valid) {
-        printTime("shex ",opts,nanos)
+        printTime("shex      valid",opts,time)
       } else {
-        println("Not valid")
+        printTime("shex  not valid",opts,time)
       }
     }
 
     if (opts.shacl()) {
       try {
-      val nanos = validateShacl(rdf)
-      if (nanos == -1) {
-        printTime("shacl not valid",opts,-1)
+      val (valid,time) = validateShacl(rdf)
+      if (valid) {
+        printTime("shacl     valid", opts, time)
       } else {
-        printTime("shacl",opts,nanos)
+        printTime("shacl not valid", opts, time)
       } 
       } catch {
         case e : Throwable => 
@@ -94,16 +101,16 @@ object Main extends App {
     ShExValidator.validate(rdf.model)
   }
 
-  def validateShacl(rdf: RDFAsJenaModel): Long = {
+  def validateShacl(rdf: RDFAsJenaModel): (Boolean,Long) = {
     val shaclFile = "schemas/webindexShapes.ttl"
     val model = rdf.model
     val shaclModel = RDFDataMgr.loadModel(shaclFile)
     val (result, time) = ShaclValidator.validate(model, shaclModel)
     if (result.size == 0) {
-      time
+      (true,time)
     } else {
       println("Model not valid\n" + ShaclValidator.result2Str(result))
-      -1
+      (false,time)
     }
   }
 

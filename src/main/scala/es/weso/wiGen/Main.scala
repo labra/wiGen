@@ -22,6 +22,7 @@ object Main extends App {
     appender.setThreshold(error)
 
     val opts = new MainOpts(args, errorDriver)
+    opts.verify()
 
     val rdf = RDFAsJenaModel.empty
     val generated =

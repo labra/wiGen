@@ -1,0 +1,4 @@
+shex      valid,   1,   1,   1,  1,  1,  1,       716
+shex      valid,   1,   1,   1,  1,  1,  1,       841
+shex  not valid,   1,   1,   1,  1,  1,  1,       686
+shex      valid,   1,   1,   1,  1,  2,  1,       971

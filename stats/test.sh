@@ -1,7 +1,7 @@
 values="1 2" 
 # values="1 5 10 50 100 500 1000" 
-#wiGenRunner="\basura\wigen-0.0.1\wigen-0.0.1\bin\wigen.bat"
-wiGenRunner=./wiGen
+wiGenRunner="\basura\wigen-0.0.1\wigen-0.0.1\bin\wigen.bat"
+#wiGenRunner=./wiGen
 
 for value in $values
 do

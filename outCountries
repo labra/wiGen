@@ -3,4 +3,9 @@ shex      valid,   1,   1,   1,  1,  1,  1,       664
 shex  not valid,   1,   1,   1,  1,  1,  1,       453
 shex      valid,   2,   1,   1,  1,  1,  1,       606
 shex      valid,   2,   1,   1,  1,  1,  1,       281
-¨Desea terminar el trabajo por lotes (S/N)? 
+¨Desea terminar el trabajo por lotes (S/N)? shex      valid,   1,   1,   1,  1,  1,  1,       709
+shex      valid,   1,   1,   1,  1,  1,  1,       567
+shex  not valid,   1,   1,   1,  1,  1,  1,       832
+shex      valid,   2,   1,   1,  1,  1,  1,       920
+shex      valid,   2,   1,   1,  1,  1,  1,       581
+shex  not valid,   2,   1,   1,  1,  1,  1,       815

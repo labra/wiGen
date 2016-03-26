@@ -82,7 +82,7 @@ object Main extends App {
   def printTime(msg: String, opts: MainOpts, nanos: Long): Unit = {
     if (opts.time()) {
       val time = Duration(nanos, NANOSECONDS).toMillis
-      println(f"$msg%s, ${opts.numCountries()}%3d, ${opts.numDataSets()}%3d, ${opts.numSlices()}%3d,${opts.numObs()}%3d,${opts.numIndicators()}%3d,${opts.numOrgs()}%3d,$time%10d")
+      println(f"$msg%s, ${opts.allScopeNodes()}, ${opts.numCountries()}%3d, ${opts.numDataSets()}%3d, ${opts.numSlices()}%3d,${opts.numObs()}%3d,${opts.numIndicators()}%3d,${opts.numOrgs()}%3d,$time%10d")
     }
   }
 
@@ -109,7 +109,7 @@ object Main extends App {
     if (result.size == 0) {
       (true,time)
     } else {
-      println("Model not valid\n" + ShaclValidator.result2Str(result))
+      // println("Model not valid\n" + ShaclValidator.result2Str(result))
       (false,time)
     }
   }

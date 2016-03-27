@@ -60,6 +60,10 @@ object WiGen {
       val mkInvalid = i <= wrongObs
       addObservation(i, mkInvalid, numCountries, numDataSets, numSlices, numIndicators, numOrgs, allScopeNodes)(rdf)
     }
+    for (i <- 1 to numComps) {
+      val mkInvalid = i <= wrongComps
+      addComputation(i, mkInvalid, numComps, allScopeNodes)(rdf)
+    }
     for (i <- 1 to numIndicators) {
       val mkInvalid = i <= wrongIndicators
       addIndicator(i, mkInvalid, numOrgs, allScopeNodes)(rdf)
@@ -121,6 +125,7 @@ object WiGen {
   val ex_DataSet = iri(ex, "DataSet")
   val ex_Slice = iri(ex, "Slice")
   val ex_Observation = iri(ex, "Observation")
+  val ex_Computation = iri(ex, "Computation")
   val ex_Indicator = iri(ex, "Indicator")
   val ex_Organization = iri(ex, "Organization")
 
@@ -162,6 +167,7 @@ object WiGen {
   val dataSetName = "dataSet"
   val sliceName = "slice"
   val obsName = "obs"
+  val computationName = "computation"
   val indicatorName = "indicator"
   val orgName = "org"
 
@@ -294,6 +300,25 @@ object WiGen {
     (node, rdf)
   }
 
+  def addComputation(n: Int,
+                   mkInvalid: Boolean,
+                   numComps: Int,
+                   allScopeNodes: Boolean): RDFBuilder => (RDFNode, RDFBuilder) = { rdf =>
+    val node = mkNode(computationName, n)
+    addTriple(rdf, (node, rdf_type, cex_Computation))
+
+    if (mkInvalid) { 
+    // We make invalid computations by adding an extra rdf_type
+    addTripleString(rdf, (node, rdf_type, "Bad value for computation type"))
+    }
+    
+    if (allScopeNodes) {
+      addTriple(rdf, (ex_Computation, sh_scopeNode, node))
+    }
+
+    (node, rdf)
+  }
+                   
   def addIndicator(n: Int,
                    mkInvalid: Boolean,
                    numOrgs: Int,

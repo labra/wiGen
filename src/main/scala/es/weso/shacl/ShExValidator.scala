@@ -9,18 +9,28 @@ import es.weso.rdf.jena.RDFAsJenaModel
 
 object ShExValidator {
   
-  lazy val webindexFile = "schemas/webindex.shex"
-  lazy val (webindexSchema,pm) = Schema.fromFile(webindexFile,"SHEXC",None).get
+  def validate(schemaFile: String, dataModel: Model, explain: Boolean): (Boolean,Long) = {
   
-  def validate(dataModel: Model): (Boolean,Long) = {
-    
-    val rdf = RDFAsJenaModel(dataModel)
-    val validator = ShaclMatcher(webindexSchema,rdf)
-    val startTime = System.nanoTime()
-    val result = validator.validate
-    val endTime = System.nanoTime()
-    val time = endTime - startTime
-    (result.isValid,time)
+    // TODO: Error checking in case of bad schema
+    lazy val trySchema = Schema.fromFile(schemaFile,"SHEXC",None)
+    if (trySchema.isFailure) {
+      if (explain) {
+        println("Error loading schema: " + trySchema.failed.get.getMessage)
+      }
+      (false,-1)
+    } else {
+     val (webindexSchema,_) = trySchema.get
+     val rdf = RDFAsJenaModel(dataModel)
+     val validator = ShaclMatcher(webindexSchema,rdf)
+     val startTime = System.nanoTime()
+     val result = validator.validate
+     val endTime = System.nanoTime()
+     val time = endTime - startTime
+     if (result.isFailure && explain) {
+       println("Not valid. Result:" + result)
+     }
+     (result.isValid,time)
+    }
   }
   
   def result2Str(m: Model): String = {

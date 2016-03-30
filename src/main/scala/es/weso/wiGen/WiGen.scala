@@ -28,7 +28,8 @@ object WiGen {
     wrongObs: Int = 0,
     wrongComps: Int = 0,
     wrongIndicators: Int = 0,
-    wrongOrgs: Int = 0): RDFAsJenaModel = {
+    wrongOrgs: Int = 0,
+    allTypes: Boolean): RDFAsJenaModel = {
 
     //TODO: Add better message when failing...
     require(wrongCountries <= numCountries, ". Number of bad Countries")
@@ -45,7 +46,7 @@ object WiGen {
 
     for (i <- 1 to numCountries) {
       val mkInvalid = i <= wrongCountries
-      addCountry(i, mkInvalid, allScopeNodes)(rdf)
+      addCountry(i, mkInvalid, allScopeNodes, allTypes)(rdf)
     }
 
     for (i <- 1 to numDataSets) {
@@ -66,7 +67,7 @@ object WiGen {
     }
     for (i <- 1 to numIndicators) {
       val mkInvalid = i <= wrongIndicators
-      addIndicator(i, mkInvalid, numOrgs, allScopeNodes)(rdf)
+      addIndicator(i, mkInvalid, numOrgs, allScopeNodes,allTypes)(rdf)
     }
     for (i <- 1 to numOrgs) {
       val mkInvalid = i <= wrongOrgs
@@ -146,6 +147,8 @@ object WiGen {
   val rdfs_label = iri(rdfs, "label")
 
   val wf_Observation = iri(wf, "Observation")
+  val wf_Country = iri(wf, "Country")
+  val wf_Indicator = iri(wf, "Indicator")
   val wf_sliceByYear = iri(wf, "sliceByYear")
   val wf_PrimaryIndicator = iri(wf, "PrimaryIndicator")
   val wf_SecondaryIndicator = iri(wf, "SecondaryIndicator")
@@ -171,7 +174,10 @@ object WiGen {
   val indicatorName = "indicator"
   val orgName = "org"
 
-  def addCountry(n: Int, mkInvalid: Boolean, allScopeNodes: Boolean): RDFBuilder => (RDFNode, RDFBuilder) = { rdf =>
+  def addCountry(n: Int, 
+      mkInvalid: Boolean, 
+      allScopeNodes: Boolean,
+      allTypes: Boolean): RDFBuilder => (RDFNode, RDFBuilder) = { rdf =>
     val node = mkNode(countryName, n)
     addTripleString(rdf, (node, rdfs_label, countryName + n))
     addTripleString(rdf, (node, wf_iso2, "c" + n))
@@ -182,6 +188,9 @@ object WiGen {
     }
     if (allScopeNodes) {
       addTriple(rdf, (ex_Country, sh_scopeNode, node))
+    }
+    if (allTypes) {
+      addTriple(rdf, (node, rdf_type, wf_Country))
     }
     (node, rdf)
   }
@@ -320,9 +329,10 @@ object WiGen {
   }
                    
   def addIndicator(n: Int,
-                   mkInvalid: Boolean,
-                   numOrgs: Int,
-                   allScopeNodes: Boolean): RDFBuilder => (RDFNode, RDFBuilder) = { rdf =>
+           mkInvalid: Boolean,
+           numOrgs: Int,
+           allScopeNodes: Boolean,
+           allTypes: Boolean): RDFBuilder => (RDFNode, RDFBuilder) = { rdf =>
     val node = mkNode(indicatorName, n)
     val isPrimary = random.nextBoolean()
     if (isPrimary) {

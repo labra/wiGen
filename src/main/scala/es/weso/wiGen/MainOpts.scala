@@ -9,7 +9,7 @@ class MainOpts(
   arguments: Array[String],
   onError: (Throwable, Scallop) => Nothing) extends ScallopConf(arguments) {
 
-  banner("""| ShExperiments
+  banner("""| wiGen: WebIndex-like data generation and validation
             | Options:
             |""".stripMargin)
 
@@ -99,12 +99,28 @@ class MainOpts(
     noshort = true
   )
   
+  val allTypes = toggle("allTypes",
+    prefix = "no-",
+    default = Some(false),
+    descrYes = "add rdf:type to every node",
+    descrNo = "don't add rdf:type to every node",
+    noshort = true
+    )
+    
+  val explain = toggle("explain",
+    prefix = "no-",
+    default = Some(false),
+    descrYes = "show more info in case of errors",
+    descrNo = "don't show info in case of errors",
+    noshort = true
+    )
+    
   val show = toggle("show",
     prefix = "no-",
     default = Some(false),
     descrYes = "show data generated",
     descrNo = "don't show data generated",
-    short = 's'
+    noshort = true
     )
     
   val format = opt[String]("format",
@@ -125,19 +141,15 @@ class MainOpts(
     descrNo = "generate only one scopeNode declaration of a dataSet",
     noshort = true)
     
-  val shex = toggle("shex",
-    prefix = "no-",
-    default = Some(false),
-    descrYes = "validate data with shex",
-    descrNo = "don't validate data with shex",
+  val shex = opt[String]("shex",
+    default = None,
+    descr = "Validate with ShEx schema",
     short = 'x')
     
-  val shacl = toggle("shacl",
-    prefix = "no-",
-    default = Some(false),
-    descrYes = "validate data with shacl",
-    descrNo = "don't validate data with shacl",
-    short = 'h')
+  val shacl = opt[String]("shacl",
+    default = None,
+    descr = "Validate with SHACL schema",
+    short = 's')
     
   val time = toggle("time",
     prefix = "no-",

@@ -42,10 +42,11 @@ object Main extends App {
         opts.numBadObs(),
         opts.numBadComps(),
         opts.numBadIndicators(),
-        opts.numBadOrgs())
+        opts.numBadOrgs(),
+        opts.allTypes())
 
-    if (opts.shex()) {
-      val (valid, time) = validateShEx(rdf)
+    if (opts.shex.isDefined) {
+      val (valid, time) = validateShEx(opts.shex(),rdf, opts.explain())
       if (valid) {
         printTime("shex,      valid",opts,time)
       } else {
@@ -53,9 +54,9 @@ object Main extends App {
       }
     }
 
-    if (opts.shacl()) {
+    if (opts.shacl.isDefined) {
       try {
-      val (valid,time) = validateShacl(rdf)
+      val (valid,time) = validateShacl(opts.shacl(),rdf, opts.explain())
       if (valid) {
         printTime("shacl,     valid", opts, time)
       } else {
@@ -98,19 +99,23 @@ object Main extends App {
       sys.exit(1)
   }
 
-  def validateShEx(rdf: RDFAsJenaModel): (Boolean, Long) = {
-    ShExValidator.validate(rdf.model)
+  def validateShEx(schemaFile: String, rdf: RDFAsJenaModel, explain: Boolean): (Boolean, Long) = {
+    ShExValidator.validate(schemaFile, rdf.model, explain)
   }
 
-  def validateShacl(rdf: RDFAsJenaModel): (Boolean,Long) = {
-    val shaclFile = "schemas/webindexShapes.ttl"
+  def validateShacl(
+      shaclFile: String, 
+      rdf: RDFAsJenaModel,
+      explain: Boolean): (Boolean,Long) = {
     val model = rdf.model
     val shaclModel = RDFDataMgr.loadModel(shaclFile)
     val (result, time) = ShaclValidator.validate(model, shaclModel)
     if (result.size == 0) {
       (true,time)
     } else {
-      // println("Model not valid\n" + ShaclValidator.result2Str(result))
+      if (explain) {
+       println("Model not valid\n" + ShaclValidator.result2Str(result))
+      }
       (false,time)
     }
   }

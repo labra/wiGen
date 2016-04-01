@@ -1,0 +1,21 @@
+shex,      valid, true,   1,   1,   1,  1,  1,  1,  1,       148
+shex,      valid, false,   1,   1,   1,  1,  1,  1,  1,        89
+shex,  not valid, true,   1,   1,   1,  1,  1,  1,  1,       130
+shex,      valid, true,   1,   1,   1,  1,  5,  1,  1,       159
+shex,      valid, false,   1,   1,   1,  1,  5,  1,  1,        88
+shex,  not valid, true,   1,   1,   1,  1,  5,  1,  1,       137
+shex,      valid, true,   1,   1,   1,  1, 10,  1,  1,       167
+shex,      valid, false,   1,   1,   1,  1, 10,  1,  1,        87
+shex,  not valid, true,   1,   1,   1,  1, 10,  1,  1,       136
+shex,      valid, true,   1,   1,   1,  1, 50,  1,  1,       283
+shex,      valid, false,   1,   1,   1,  1, 50,  1,  1,        87
+shex,  not valid, true,   1,   1,   1,  1, 50,  1,  1,       173
+shex,      valid, true,   1,   1,   1,  1,100,  1,  1,       431
+shex,      valid, false,   1,   1,   1,  1,100,  1,  1,        87
+shex,  not valid, true,   1,   1,   1,  1,100,  1,  1,       264
+shex,      valid, true,   1,   1,   1,  1,500,  1,  1,      3984
+shex,      valid, false,   1,   1,   1,  1,500,  1,  1,        86
+shex,  not valid, true,   1,   1,   1,  1,500,  1,  1,      1240
+shex,      valid, true,   1,   1,   1,  1,1000,  1,  1,     23625
+shex,      valid, false,   1,   1,   1,  1,1000,  1,  1,        84
+shex,  not valid, true,   1,   1,   1,  1,1000,  1,  1,      4895

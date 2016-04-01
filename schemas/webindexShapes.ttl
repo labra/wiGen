@@ -86,23 +86,35 @@
 .
 
 :Observation a sh:Shape ;
+# 1st approach, using qualifiedValueShape
+#	sh:property [
+#		sh:predicate rdf:type ;
+#		sh:qualifiedMinCount 1 ;
+#		sh:qualifiedValueShape [
+#			sh:constraint [
+#			  sh:in ( qb:Observation ) 
+#			 ]
+#		] ;
+#	] ;
+#	sh:property [
+#		sh:predicate rdf:type ;
+#		sh:qualifiedMinCount 1 ;
+#		sh:qualifiedValueShape [
+#			sh:constraint [
+#			  sh:in ( wf:Observation ) 
+#			 ]
+#		] ;
+#	] ;
+#	sh:property [
+#		sh:predicate rdf:type ;
+#		sh:hasValue qb:Observation;
+#		sh:minCount 2
+#	] ;
+# 2nd approach suggested by Peter F. Patel Schneider
 	sh:property [
 		sh:predicate rdf:type ;
-		sh:qualifiedMinCount 1 ;
-		sh:qualifiedValueShape [
-			sh:constraint [
-			  sh:in ( qb:Observation ) 
-			 ]
-		] ;
-	] ;
-	sh:property [
-		sh:predicate rdf:type ;
-		sh:qualifiedMinCount 1 ;
-		sh:qualifiedValueShape [
-			sh:constraint [
-			  sh:in ( wf:Observation ) 
-			 ]
-		] ;
+		sh:in (qb:Observation wf:Observation);
+		sh:minCount 2
 	] ;
 	sh:property [
 	   sh:predicate rdf:type ;

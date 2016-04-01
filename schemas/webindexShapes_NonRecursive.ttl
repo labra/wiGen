@@ -92,21 +92,8 @@
     sh:scopeClass wf:Observation ;
 	sh:property [
 		sh:predicate rdf:type ;
-		sh:qualifiedMinCount 1 ;
-		sh:qualifiedValueShape [
-			sh:constraint [
-			  sh:in ( qb:Observation ) 
-			 ]
-		] ;
-	] ;
-	sh:property [
-		sh:predicate rdf:type ;
-		sh:qualifiedMinCount 1 ;
-		sh:qualifiedValueShape [
-			sh:constraint [
-			  sh:in ( wf:Observation ) 
-			 ]
-		] ;
+		sh:in (qb:Observation wf:Observation);
+		sh:minCount 2
 	] ;
 	sh:property [
 	   sh:predicate rdf:type ;
